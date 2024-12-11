@@ -1,16 +1,10 @@
-import { useState, useRef} from "react";
+import { useRef} from "react";
 import TodoList from "./TodoList";
 import { v4 as uuidv4 } from 'uuid'
-
-// Todoの型を定義
-type Todo = {
-  id: string;
-  name: string;
-  completed: boolean;
-};
+import { useTodos } from './TodoContext'
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const { todos, setTodos } = useTodos();
 
   const todoNameRef = useRef<HTMLInputElement>(null);
 
